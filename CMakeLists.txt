@@ -12,20 +12,19 @@ find_package(Qt6 COMPONENTS
         Core
         Gui
         Widgets
-        REQUIRED)
+        REQUIRED
+        Multimedia)
 
-add_executable(Play_With_Fire main.cpp)
+add_executable(Play_With_Fire main.cpp src/windows/Home.cpp src/windows/Home.h)
 target_link_libraries(Play_With_Fire
         Qt::Core
         Qt::Gui
         Qt::Widgets
+        Qt::Multimedia
         )
 
 if (WIN32)
     set(DEBUG_SUFFIX)
-    if (CMAKE_BUILD_TYPE MATCHES "Debug")
-        set(DEBUG_SUFFIX "d")
-    endif ()
     set(QT_INSTALL_PATH "${CMAKE_PREFIX_PATH}")
     if (NOT EXISTS "${QT_INSTALL_PATH}/bin")
         set(QT_INSTALL_PATH "${QT_INSTALL_PATH}/..")
