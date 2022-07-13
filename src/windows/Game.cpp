@@ -1,6 +1,6 @@
 #include "Game.h"
 
-Game::Game() : QGraphicsView(){
+Game::Game(Player player1, Player player2) : QGraphicsView(){
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     showFullScreen();

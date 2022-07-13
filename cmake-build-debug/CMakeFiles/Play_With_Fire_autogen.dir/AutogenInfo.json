@@ -296,9 +296,33 @@
 	"HEADERS" : 
 	[
 		[
+			"E:/cpp/Play-With-Fire/src/views/Block.h",
+			"MU",
+			"Z3L7HTGYLD/moc_Block.cpp",
+			null
+		],
+		[
+			"E:/cpp/Play-With-Fire/src/views/Box.h",
+			"MU",
+			"Z3L7HTGYLD/moc_Box.cpp",
+			null
+		],
+		[
+			"E:/cpp/Play-With-Fire/src/views/Player.h",
+			"MU",
+			"Z3L7HTGYLD/moc_Player.cpp",
+			null
+		],
+		[
 			"E:/cpp/Play-With-Fire/src/views/TextField.h",
 			"MU",
 			"Z3L7HTGYLD/moc_TextField.cpp",
+			null
+		],
+		[
+			"E:/cpp/Play-With-Fire/src/views/Wall.h",
+			"MU",
+			"Z3L7HTGYLD/moc_Wall.cpp",
 			null
 		],
 		[
@@ -381,7 +405,11 @@
 	"SOURCES" : 
 	[
 		[ "E:/cpp/Play-With-Fire/main.cpp", "MU", null ],
+		[ "E:/cpp/Play-With-Fire/src/views/Block.cpp", "MU", null ],
+		[ "E:/cpp/Play-With-Fire/src/views/Box.cpp", "MU", null ],
+		[ "E:/cpp/Play-With-Fire/src/views/Player.cpp", "MU", null ],
 		[ "E:/cpp/Play-With-Fire/src/views/TextField.cpp", "MU", null ],
+		[ "E:/cpp/Play-With-Fire/src/views/Wall.cpp", "MU", null ],
 		[ "E:/cpp/Play-With-Fire/src/windows/Game.cpp", "MU", null ],
 		[ "E:/cpp/Play-With-Fire/src/windows/Home.cpp", "MU", null ]
 	],
