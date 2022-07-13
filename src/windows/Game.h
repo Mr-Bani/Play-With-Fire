@@ -9,7 +9,7 @@
 
 class Game : public QGraphicsView{
 public:
-    Game(Player player1, Player player2);
+    Game();
 };
 
 

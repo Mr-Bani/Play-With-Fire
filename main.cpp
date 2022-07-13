@@ -5,9 +5,7 @@
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
-    Player p1;
-    Player p2;
-    auto game = new Game(p1,p2);
+    auto game = new Game();
     game->show();
     return QApplication::exec();
 }

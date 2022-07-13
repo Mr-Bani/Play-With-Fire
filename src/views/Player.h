@@ -4,18 +4,19 @@
 #include <QString>
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
+#include <QPainter>
 
 
 
-class Player : public QGraphicsItem {
+
+class Player : public QGraphicsPixmapItem {
 private:
     QString name;
-    int score,bombCount,lifeCount,speed,postionX,positionY;
+    int score{},bombCount{100},lifeCount{5},speed{3},postionX,positionY;
     double bombRadius;
 public:
     Player(QString name, int postionX, int positionY);
-    QRectF boundingRect() const override;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+    Player(const Player &p);
     void setPosition(int postionX, int positionY);
     void setSpeed(int speed);
     void setBombCount(int bombCount);
@@ -31,11 +32,15 @@ public:
     QString getName();
     int getPositionX();
     int getPositionY();
+    void goUp();
+    void goDown();
+    void goLeft();
+    void goRight();
 };
 
 
 
-};
+
 
 
 #endif //PLAY_WITH_FIRE_PLAYER_H
