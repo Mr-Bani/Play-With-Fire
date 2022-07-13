@@ -2,12 +2,13 @@
 #define PLAY_WITH_FIRE_HOME_H
 #include "QGraphicsView"
 #include "../views/TextField.h"
-
-
-class Home : public QGraphicsView{
+#include "../views/Background.h"
+class Home : public QGraphicsView
+        {
 
 public:
     Home();
+
 };
 
 

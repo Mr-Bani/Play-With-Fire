@@ -1,4 +1,4 @@
-#ifndef PLAY_WITH_FIRE_TEXTFIELD_H
+ #ifndef PLAY_WITH_FIRE_TEXTFIELD_H
 #define PLAY_WITH_FIRE_TEXTFIELD_H
 #include <QGraphicsTextItem>
 
@@ -11,6 +11,7 @@ private:
 public:
     TextField(int width,int height);
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+    QRectF boundingRect() const ;
 };
 
 

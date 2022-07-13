@@ -6,7 +6,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(CMAKE_PREFIX_PATH "E:/Qt/6.2.4/mingw_64")
+set(CMAKE_PREFIX_PATH "C:/Qt/6.2.4/mingw_64")
 
 find_package(Qt6 COMPONENTS
         Core
@@ -15,7 +15,7 @@ find_package(Qt6 COMPONENTS
         REQUIRED
         Multimedia)
 
-add_executable(Play_With_Fire main.cpp src/windows/Home.cpp src/windows/Home.h resources.qrc src/views/TextField.cpp src/views/TextField.h)
+add_executable(Play_With_Fire main.cpp src/windows/Home.cpp src/windows/Home.h resources.qrc src/views/TextField.cpp src/views/TextField.h src/views/Background.cpp src/views/Background.h)
 target_link_libraries(Play_With_Fire
         Qt::Core
         Qt::Gui
