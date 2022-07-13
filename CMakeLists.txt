@@ -15,7 +15,7 @@ find_package(Qt6 COMPONENTS
         REQUIRED
         Multimedia)
 
-add_executable(Play_With_Fire main.cpp src/windows/Home.cpp src/windows/Home.h)
+add_executable(Play_With_Fire main.cpp src/windows/Home.cpp src/windows/Home.h resources.qrc src/views/TextField.cpp src/views/TextField.h)
 target_link_libraries(Play_With_Fire
         Qt::Core
         Qt::Gui

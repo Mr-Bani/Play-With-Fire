@@ -1,7 +1,7 @@
 <RCC>
-    <qresources prefix =" images">
-        <file alias = " bg1">resources/images/bg1.png</file>
+    <qresource prefix ="/images">
+        <file alias = "bg1">resources/images/bg1.png</file>
         <file alias = "start">resources/images/startButton.png</file>
         <file alias = "input">resources/images/input.png</file>
-    </qresources>
+    </qresource>
 </RCC>
