@@ -302,6 +302,12 @@
 			null
 		],
 		[
+			"E:/cpp/Play-With-Fire/src/windows/Game.h",
+			"MU",
+			"3LXPKN4LCA/moc_Game.cpp",
+			null
+		],
+		[
 			"E:/cpp/Play-With-Fire/src/windows/Home.h",
 			"MU",
 			"3LXPKN4LCA/moc_Home.cpp",
@@ -376,6 +382,7 @@
 	[
 		[ "E:/cpp/Play-With-Fire/main.cpp", "MU", null ],
 		[ "E:/cpp/Play-With-Fire/src/views/TextField.cpp", "MU", null ],
+		[ "E:/cpp/Play-With-Fire/src/windows/Game.cpp", "MU", null ],
 		[ "E:/cpp/Play-With-Fire/src/windows/Home.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
