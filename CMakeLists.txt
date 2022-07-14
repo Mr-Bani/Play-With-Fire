@@ -6,7 +6,7 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(CMAKE_PREFIX_PATH "C:/Qt/6.2.4/mingw_64")
+set(CMAKE_PREFIX_PATH "E:/Qt/6.2.4/mingw_64")
 
 find_package(Qt6 COMPONENTS
         Core
@@ -15,7 +15,7 @@ find_package(Qt6 COMPONENTS
         REQUIRED
         Multimedia)
 
-add_executable(Play_With_Fire main.cpp src/windows/Home.cpp src/windows/Home.h resources.qrc src/views/TextField.cpp src/views/TextField.h src/views/Background.cpp src/views/Background.h src/views/label.cpp src/views/label.h src/views/Button.cpp src/views/Button.h)
+add_executable(Play_With_Fire main.cpp src/windows/Home.cpp src/windows/Home.h resources.qrc src/views/TextField.cpp src/views/TextField.h src/windows/Game.cpp src/windows/Game.h src/views/Block.cpp src/views/Block.h src/views/Box.cpp src/views/Box.h src/views/Wall.cpp src/views/Wall.h src/views/Player.cpp src/views/Player.h)
 target_link_libraries(Play_With_Fire
         Qt::Core
         Qt::Gui
