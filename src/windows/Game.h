@@ -8,6 +8,7 @@
 #include "../views/Wall.h"
 
 class Game : public QGraphicsView{
+    Q_OBJECT
 public:
     Game();
 };

@@ -3,7 +3,11 @@
         <file alias = "bg1">resources/images/bg1.png</file>
         <file alias = "start">resources/images/startButton.png</file>
         <file alias = "input">resources/images/input.png</file>
-        <file alias = "input">resources/images/Player.png</file>
-        <file alias = "input">resources/images/wall.png</file>
+        <file alias = "player">resources/images/Player.png</file>
+        <file alias = "wall">resources/images/wall.png</file>
+        <file alias = "player-right">resources/images/Player-Right.png</file>
+        <file alias = "player-left">resources/images/Player-Left.png</file>
+        <file alias = "player-left2">resources/images/Player-Left2.png</file>
+        <file alias = "player-right2">resources/images/Player-Right2.png</file>
     </qresource>
 </RCC>

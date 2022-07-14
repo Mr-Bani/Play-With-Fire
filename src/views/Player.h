@@ -5,20 +5,38 @@
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
 #include <QPainter>
+#include <QKeyEvent>
+#include <QPropertyAnimation>
+#include <Qtimer>
+#include <QGraphicsItemAnimation>
 
 
 
+class Player : public QObject, public QGraphicsPixmapItem {
+Q_OBJECT
+    Q_PROPERTY(qreal height READ x WRITE setX)
+    Q_PROPERTY(qreal width READ y WRITE setY)
 
-class Player : public QGraphicsPixmapItem {
 private:
     QString name;
-    int score{},bombCount{100},lifeCount{5},speed{3},postionX,positionY;
+    int score{},bombCount{100},lifeCount{5},speed{3},screenWidth,screenHeight,id;
+    int positionX, positionY,playerWidth{100},playerHeight{155};
     double bombRadius;
+    bool moving{false},isIdle{true};
+    QPixmap* pixmaps = new QPixmap[5];
+    QPropertyAnimation* xAnimator, *yAnimator;
+    QTimer* walkingTimer;
+
+
+
+
+
 public:
-    Player(QString name, int postionX, int positionY);
+
+    Player(QString name,int x, int y, int screenWIdth, int screenHeight,int id);
     Player(const Player &p);
-    void setPosition(int postionX, int positionY);
     void setSpeed(int speed);
+    int whichFoot{1},whichPixmap{0};
     void setBombCount(int bombCount);
     void setLifeCount(int lifeCount);
     void setBombRadius(double bombRadius);
@@ -32,10 +50,17 @@ public:
     QString getName();
     int getPositionX();
     int getPositionY();
+    void setPositionX(int x);
+    void setPositionY(int y);
     void goUp();
     void goDown();
     void goLeft();
     void goRight();
+    //void keyReleaseEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event);
+
+public slots:
+void idle();
 };
 
 

@@ -196,7 +196,7 @@ build Play_With_Fire_autogen/timestamp Play_With_Fire_autogen/mocs_compilation.c
 #############################################
 # Custom command for Play_With_Fire_autogen\EWIEGA46WW\qrc_resources.cpp
 
-build Play_With_Fire_autogen/EWIEGA46WW/qrc_resources.cpp | ${cmake_ninja_workdir}Play_With_Fire_autogen/EWIEGA46WW/qrc_resources.cpp: CUSTOM_COMMAND ../resources.qrc CMakeFiles/Play_With_Fire_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json ../resources/images/startButton.png ../resources/images/wall.png ../resources/images/Player.png ../resources/images/input.png ../resources/images/bg1.png E$:/Qt/6.2.4/mingw_64/./bin/rcc.exe || Play_With_Fire_autogen Play_With_Fire_autogen_timestamp_deps
+build Play_With_Fire_autogen/EWIEGA46WW/qrc_resources.cpp | ${cmake_ninja_workdir}Play_With_Fire_autogen/EWIEGA46WW/qrc_resources.cpp: CUSTOM_COMMAND ../resources.qrc CMakeFiles/Play_With_Fire_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json ../resources/images/Player-Right2.png ../resources/images/input.png ../resources/images/Player.png ../resources/images/Player-Right.png ../resources/images/bg1.png ../resources/images/Player-Left.png ../resources/images/wall.png ../resources/images/startButton.png ../resources/images/Player-Left2.png E$:/Qt/6.2.4/mingw_64/./bin/rcc.exe || Play_With_Fire_autogen Play_With_Fire_autogen_timestamp_deps
   COMMAND = cmd.exe /C "cd /D E:\cpp\Play-With-Fire\cmake-build-debug && "E:\Program Files\JetBrains\CLion 2021.3.4\bin\cmake\win\bin\cmake.exe" -E cmake_autorcc E:/cpp/Play-With-Fire/cmake-build-debug/CMakeFiles/Play_With_Fire_autogen.dir/AutoRcc_resources_EWIEGA46WW_Info.json Debug"
   DESC = Automatic RCC for resources.qrc
   restat = 1
@@ -205,7 +205,7 @@ build Play_With_Fire_autogen/EWIEGA46WW/qrc_resources.cpp | ${cmake_ninja_workdi
 #############################################
 # Phony custom command for CMakeFiles\Play_With_Fire_autogen_timestamp_deps
 
-build CMakeFiles/Play_With_Fire_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/Play_With_Fire_autogen_timestamp_deps: phony E$:/Qt/6.2.4/mingw_64/./bin/moc.exe E$:/Qt/6.2.4/mingw_64/./bin/uic.exe
+build CMakeFiles/Play_With_Fire_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/Play_With_Fire_autogen_timestamp_deps: phony E$:/Qt/6.2.4/mingw_64/./bin/uic.exe E$:/Qt/6.2.4/mingw_64/./bin/moc.exe
 
 
 #############################################
