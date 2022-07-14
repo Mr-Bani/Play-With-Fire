@@ -5,6 +5,7 @@ using namespace std;
 
 
 Home::Home() {
+
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     showFullScreen();
@@ -16,8 +17,8 @@ Home::Home() {
     scene->addItem(background);
 
 
-    auto textField = new TextField(150,60);
-    auto textField1 = new TextField(150 ,60);
+     textField = new TextField(150,60);
+     textField1 = new TextField(150 ,60);
 
     textField->setPlainText("");
     textField1->setPlainText("");
@@ -33,12 +34,26 @@ Home::Home() {
     textField1->setPos(width()/1.4,height()/1.5);
 
     auto Label = new label();
-    Label->setPlainText("Name player 1:");
+    Label->setPlainText("player 1:");
     scene->addItem(Label);
     Label->setPos(width()/1.4,(height()/1.6));
 
     auto Label1 = new label();
-    Label1->setPlainText("Name player 2:");
+    Label1->setPlainText("player 2:");
     scene->addItem(Label1);
     Label1->setPos(width()/6,(height()/1.6));
+
+
+    auto start = new Button(150,60);
+    start->setPlainText("         start");
+    scene->addItem(start);
+    start->setPos(width()/2.4,height()/1.3);
+
+    connect(start, &Button::onPress , this , &Home::onGameStart );
 }
+
+void Home::onGameStart() {
+   auto name = textField->toPlainText();
+   auto name1 =textField1->toPlainText();
+}
+
