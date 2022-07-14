@@ -1,1 +1,15 @@
 /cmake-build-debug/
+/cmake-build-debug/.cmake/
+/cmake-build-debug/CMakeFiles/
+/cmake-build-debug/Play_With_Fire_autogen/
+/cmake-build-debug/plugins/
+/cmake-build-debug/Testing/
+/cmake-build-debug/build.ninja
+/cmake-build-debug/cmake_install.cmake
+/cmake-build-debug/CMakeCache.txt
+/cmake-build-debug/Makefile
+/cmake-build-debug/Play_With_Fire.cbp
+/cmake-build-debug/Play_With_Fire.exe
+/cmake-build-debug/Qt6Core.dll
+/cmake-build-debug/Qt6Gui.dll
+/cmake-build-debug/Qt6Widgets.dll
