@@ -1,6 +1,7 @@
 #include "TextField.h"
 #include <QFont>
 #include <QPainter>
+#include "QStyleOptionGraphicsItem"
 #include <QTextDocument>
 
 TextField::TextField(int width, int height) : width(width), height(height),QGraphicsTextItem(){
@@ -11,7 +12,7 @@ TextField::TextField(int width, int height) : width(width), height(height),QGrap
     setFont(f);
     setTextInteractionFlags(Qt::TextEditorInteraction);
     setTextWidth(width);
-    document()->setDocumentMargin(50);
+    document()->setDocumentMargin(18);
 
 }
 
@@ -29,6 +30,5 @@ QRectF TextField :: boundingRect() const {
     auto rect = QGraphicsTextItem :: boundingRect();
     rect.setWidth(width);
     rect.setHeight(height);
-    return  rect;
-}
+    return  rect;}
 

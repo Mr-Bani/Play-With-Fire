@@ -3,6 +3,7 @@
 #include "QGraphicsView"
 #include "../views/TextField.h"
 #include "../views/Background.h"
+#include "../views/label.h"
 class Home : public QGraphicsView
         {
 

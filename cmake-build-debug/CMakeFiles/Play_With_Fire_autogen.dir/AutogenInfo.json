@@ -311,6 +311,12 @@
 			null
 		],
 		[
+			"C:/Users/Pars/CLionProjects/Play-With-Fire/src/views/label.h",
+			"MU",
+			"Z3L7HTGYLD/moc_label.cpp",
+			null
+		],
+		[
 			"C:/Users/Pars/CLionProjects/Play-With-Fire/src/windows/Home.h",
 			"MU",
 			"3LXPKN4LCA/moc_Home.cpp",
@@ -391,6 +397,11 @@
 		],
 		[
 			"C:/Users/Pars/CLionProjects/Play-With-Fire/src/views/TextField.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Pars/CLionProjects/Play-With-Fire/src/views/label.cpp",
 			"MU",
 			null
 		],

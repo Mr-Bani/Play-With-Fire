@@ -16,17 +16,29 @@ Home::Home() {
     scene->addItem(background);
 
 
-    auto textField = new TextField(150,200);
+    auto textField = new TextField(150,60);
+    auto textField1 = new TextField(150 ,60);
 
-    textField->setPlainText("First Name");
+    textField->setPlainText("");
+    textField1->setPlainText("");
     scene->setSceneRect(0,0,width(),height());
    // scene->setBackgroundBrush(QBrush(pixmap));
    // scene->setBackgroundBrush(QBrush("#41E3F0"));
 
     setScene(scene);
     scene->addItem(textField);
-    textField->setPos(width()/6,height()/2);
+    textField->setPos(width()/6,height()/1.5);
 
+    scene->addItem(textField1);
+    textField1->setPos(width()/1.4,height()/1.5);
 
+    auto Label = new label();
+    Label->setPlainText("Name player 1:");
+    scene->addItem(Label);
+    Label->setPos(width()/1.4,(height()/1.6));
 
+    auto Label1 = new label();
+    Label1->setPlainText("Name player 2:");
+    scene->addItem(Label1);
+    Label1->setPos(width()/6,(height()/1.6));
 }
