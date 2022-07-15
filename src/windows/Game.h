@@ -6,11 +6,17 @@
 #include "../views/Player.h"
 #include "../views/Box.h"
 #include "../views/Wall.h"
+#include <QTimer>
 
-class Game : public QGraphicsView{
-    Q_OBJECT
+class Game : public QGraphicsView {
+Q_OBJECT
 public:
+    Player *player1, *player2;
+    QTimer* walkingTimer;
     Game();
+
+    void keyPressEvent(QKeyEvent *event);
+    bool canImove(int x, int y);
 };
 
 

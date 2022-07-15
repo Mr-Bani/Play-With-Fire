@@ -93,6 +93,30 @@ build CMakeFiles/Play_With_Fire.dir/src/views/TextField.cpp.obj: CXX_COMPILER__P
   OBJECT_DIR = CMakeFiles\Play_With_Fire.dir
   OBJECT_FILE_DIR = CMakeFiles\Play_With_Fire.dir\src\views
 
+build CMakeFiles/Play_With_Fire.dir/src/views/Background.cpp.obj: CXX_COMPILER__Play_With_Fire_Debug E$:/cpp/Play-With-Fire/src/views/Background.cpp || cmake_object_order_depends_target_Play_With_Fire
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Play_With_Fire.dir\src\views\Background.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IE:/cpp/Play-With-Fire/cmake-build-debug/Play_With_Fire_autogen/include -isystem E:/Qt/6.2.4/mingw_64/include/QtCore -isystem E:/Qt/6.2.4/mingw_64/include -isystem E:/Qt/6.2.4/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.2.4/mingw_64/include/QtGui -isystem E:/Qt/6.2.4/mingw_64/include/QtWidgets -isystem E:/Qt/6.2.4/mingw_64/include/QtMultimedia -isystem E:/Qt/6.2.4/mingw_64/include/QtNetwork
+  OBJECT_DIR = CMakeFiles\Play_With_Fire.dir
+  OBJECT_FILE_DIR = CMakeFiles\Play_With_Fire.dir\src\views
+
+build CMakeFiles/Play_With_Fire.dir/src/views/label.cpp.obj: CXX_COMPILER__Play_With_Fire_Debug E$:/cpp/Play-With-Fire/src/views/label.cpp || cmake_object_order_depends_target_Play_With_Fire
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Play_With_Fire.dir\src\views\label.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IE:/cpp/Play-With-Fire/cmake-build-debug/Play_With_Fire_autogen/include -isystem E:/Qt/6.2.4/mingw_64/include/QtCore -isystem E:/Qt/6.2.4/mingw_64/include -isystem E:/Qt/6.2.4/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.2.4/mingw_64/include/QtGui -isystem E:/Qt/6.2.4/mingw_64/include/QtWidgets -isystem E:/Qt/6.2.4/mingw_64/include/QtMultimedia -isystem E:/Qt/6.2.4/mingw_64/include/QtNetwork
+  OBJECT_DIR = CMakeFiles\Play_With_Fire.dir
+  OBJECT_FILE_DIR = CMakeFiles\Play_With_Fire.dir\src\views
+
+build CMakeFiles/Play_With_Fire.dir/src/views/Button.cpp.obj: CXX_COMPILER__Play_With_Fire_Debug E$:/cpp/Play-With-Fire/src/views/Button.cpp || cmake_object_order_depends_target_Play_With_Fire
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Play_With_Fire.dir\src\views\Button.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IE:/cpp/Play-With-Fire/cmake-build-debug/Play_With_Fire_autogen/include -isystem E:/Qt/6.2.4/mingw_64/include/QtCore -isystem E:/Qt/6.2.4/mingw_64/include -isystem E:/Qt/6.2.4/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.2.4/mingw_64/include/QtGui -isystem E:/Qt/6.2.4/mingw_64/include/QtWidgets -isystem E:/Qt/6.2.4/mingw_64/include/QtMultimedia -isystem E:/Qt/6.2.4/mingw_64/include/QtNetwork
+  OBJECT_DIR = CMakeFiles\Play_With_Fire.dir
+  OBJECT_FILE_DIR = CMakeFiles\Play_With_Fire.dir\src\views
+
 build CMakeFiles/Play_With_Fire.dir/src/windows/Game.cpp.obj: CXX_COMPILER__Play_With_Fire_Debug E$:/cpp/Play-With-Fire/src/windows/Game.cpp || cmake_object_order_depends_target_Play_With_Fire
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Play_With_Fire.dir\src\windows\Game.cpp.obj.d
@@ -133,6 +157,14 @@ build CMakeFiles/Play_With_Fire.dir/src/views/Player.cpp.obj: CXX_COMPILER__Play
   OBJECT_DIR = CMakeFiles\Play_With_Fire.dir
   OBJECT_FILE_DIR = CMakeFiles\Play_With_Fire.dir\src\views
 
+build CMakeFiles/Play_With_Fire.dir/src/views/Bomb.cpp.obj: CXX_COMPILER__Play_With_Fire_Debug E$:/cpp/Play-With-Fire/src/views/Bomb.cpp || cmake_object_order_depends_target_Play_With_Fire
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Play_With_Fire.dir\src\views\Bomb.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IE:/cpp/Play-With-Fire/cmake-build-debug/Play_With_Fire_autogen/include -isystem E:/Qt/6.2.4/mingw_64/include/QtCore -isystem E:/Qt/6.2.4/mingw_64/include -isystem E:/Qt/6.2.4/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.2.4/mingw_64/include/QtGui -isystem E:/Qt/6.2.4/mingw_64/include/QtWidgets -isystem E:/Qt/6.2.4/mingw_64/include/QtMultimedia -isystem E:/Qt/6.2.4/mingw_64/include/QtNetwork
+  OBJECT_DIR = CMakeFiles\Play_With_Fire.dir
+  OBJECT_FILE_DIR = CMakeFiles\Play_With_Fire.dir\src\views
+
 build CMakeFiles/Play_With_Fire.dir/Play_With_Fire_autogen/EWIEGA46WW/qrc_resources.cpp.obj: CXX_COMPILER__Play_With_Fire_Debug E$:/cpp/Play-With-Fire/cmake-build-debug/Play_With_Fire_autogen/EWIEGA46WW/qrc_resources.cpp || cmake_object_order_depends_target_Play_With_Fire
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Play_With_Fire.dir\Play_With_Fire_autogen\EWIEGA46WW\qrc_resources.cpp.obj.d
@@ -149,7 +181,7 @@ build CMakeFiles/Play_With_Fire.dir/Play_With_Fire_autogen/EWIEGA46WW/qrc_resour
 #############################################
 # Link the executable Play_With_Fire.exe
 
-build Play_With_Fire.exe: CXX_EXECUTABLE_LINKER__Play_With_Fire_Debug CMakeFiles/Play_With_Fire.dir/Play_With_Fire_autogen/mocs_compilation.cpp.obj CMakeFiles/Play_With_Fire.dir/main.cpp.obj CMakeFiles/Play_With_Fire.dir/src/windows/Home.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/TextField.cpp.obj CMakeFiles/Play_With_Fire.dir/src/windows/Game.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/Block.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/Box.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/Wall.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/Player.cpp.obj CMakeFiles/Play_With_Fire.dir/Play_With_Fire_autogen/EWIEGA46WW/qrc_resources.cpp.obj | E$:/Qt/6.2.4/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.2.4/mingw_64/lib/libQt6Multimedia.a E$:/Qt/6.2.4/mingw_64/lib/libQt6Gui.a E$:/Qt/6.2.4/mingw_64/lib/libQt6Network.a E$:/Qt/6.2.4/mingw_64/lib/libQt6Core.a || Play_With_Fire_autogen Play_With_Fire_autogen_timestamp_deps
+build Play_With_Fire.exe: CXX_EXECUTABLE_LINKER__Play_With_Fire_Debug CMakeFiles/Play_With_Fire.dir/Play_With_Fire_autogen/mocs_compilation.cpp.obj CMakeFiles/Play_With_Fire.dir/main.cpp.obj CMakeFiles/Play_With_Fire.dir/src/windows/Home.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/TextField.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/Background.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/label.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/Button.cpp.obj CMakeFiles/Play_With_Fire.dir/src/windows/Game.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/Block.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/Box.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/Wall.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/Player.cpp.obj CMakeFiles/Play_With_Fire.dir/src/views/Bomb.cpp.obj CMakeFiles/Play_With_Fire.dir/Play_With_Fire_autogen/EWIEGA46WW/qrc_resources.cpp.obj | E$:/Qt/6.2.4/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.2.4/mingw_64/lib/libQt6Multimedia.a E$:/Qt/6.2.4/mingw_64/lib/libQt6Gui.a E$:/Qt/6.2.4/mingw_64/lib/libQt6Network.a E$:/Qt/6.2.4/mingw_64/lib/libQt6Core.a || Play_With_Fire_autogen Play_With_Fire_autogen_timestamp_deps
   FLAGS = -g
   LINK_LIBRARIES = E:/Qt/6.2.4/mingw_64/lib/libQt6Widgets.a  E:/Qt/6.2.4/mingw_64/lib/libQt6Multimedia.a  E:/Qt/6.2.4/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  E:/Qt/6.2.4/mingw_64/lib/libQt6Network.a  E:/Qt/6.2.4/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Play_With_Fire.dir

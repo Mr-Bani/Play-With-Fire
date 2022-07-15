@@ -1,9 +1,8 @@
 #include "Player.h"
 #include "QDebug"
 Player::Player(QString name,int x, int y, int screenWidth, int screenHeight,int id):id(id),name(name),positionX(x),positionY(y),screenHeight(screenHeight), screenWidth(screenWidth) {
-
-    setFlags(GraphicsItemFlag::ItemIsFocusable);
-    setFocus();
+    setFlag(QGraphicsItem::ItemIsFocusable);
+    setAcceptHoverEvents(true);
 
     pixmaps[0] = QPixmap (":/images/player");
 pixmaps[1] = QPixmap (":/images/player-right");
@@ -170,55 +169,6 @@ Player::Player(const Player &p) {
 }
 
 
-void Player::keyPressEvent(QKeyEvent *event) {
-if(id==1){
-    if (event->key() == Qt::Key_Up) {
-        moving = true;
-        if(positionY > 0) {
-            goUp();
-        }
-
-    } else if (event->key() == Qt::Key_Down) {
-        moving = true;
-        if (positionY+playerHeight < screenHeight) {
-            goDown();
-        }
-    } else if (event->key() == Qt::Key_Left || event->key()==Qt::Key_A) {
-        moving = true;
-        if (positionX > 0) {
-            goLeft();
-        }
-    } else if (event->key() == Qt::Key_Right) {
-        moving = true;
-        if (positionX+playerWidth < screenWidth) {
-            goRight();
-        }
-    }}
-else if(id==2){
-    if (event->key() == Qt::Key_W) {
-        moving = true;
-        if(positionY > 0) {
-            goUp();
-        }
-
-    } else if (event->key() == Qt::Key_S) {
-        moving = true;
-        if (positionY+playerHeight < screenHeight) {
-            goDown();
-        }
-    } else if (event->key()==Qt::Key_A) {
-        moving = true;
-        if (positionX > 0) {
-            goLeft();
-        }
-    } else if (event->key() == Qt::Key_D) {
-        moving = true;
-        if (positionX+playerWidth < screenWidth) {
-            goRight();
-        }
-    }
-}
-}
 
 void Player::setPositionX(int x) {
     positionX = x;
@@ -228,7 +178,22 @@ void Player::setPositionY(int y) {
 }
 
 void Player::idle() {
+
 if(isIdle && whichPixmap!=0){
     setPixmap(pixmaps[0]);
+    whichPixmap = 0;
 }
+}
+
+void Player::setmoving(bool moving) {
+    this->moving = moving;
+    isIdle=!moving;
+}
+
+int Player::getHeight() {
+    return playerHeight;
+}
+
+int Player::getWidth() {
+    return playerWidth;
 }

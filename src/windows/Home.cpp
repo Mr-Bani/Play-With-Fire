@@ -45,7 +45,7 @@ Home::Home() {
 
 
     auto start = new Button(150,60);
-    start->setPlainText("         start");
+    start->setPlainText("start");
     scene->addItem(start);
     start->setPos(width()/2.4,height()/1.3);
 

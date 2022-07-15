@@ -17,6 +17,7 @@ Q_OBJECT
     Q_PROPERTY(qreal height READ x WRITE setX)
     Q_PROPERTY(qreal width READ y WRITE setY)
 
+
 private:
     QString name;
     int score{},bombCount{100},lifeCount{5},speed{3},screenWidth,screenHeight,id;
@@ -27,12 +28,7 @@ private:
     QPropertyAnimation* xAnimator, *yAnimator;
     QTimer* walkingTimer;
 
-
-
-
-
 public:
-
     Player(QString name,int x, int y, int screenWIdth, int screenHeight,int id);
     Player(const Player &p);
     void setSpeed(int speed);
@@ -57,7 +53,9 @@ public:
     void goLeft();
     void goRight();
     //void keyReleaseEvent(QKeyEvent *event);
-    void keyPressEvent(QKeyEvent *event);
+    void setmoving(bool moving);
+    int getHeight();
+    int getWidth();
 
 public slots:
 void idle();
