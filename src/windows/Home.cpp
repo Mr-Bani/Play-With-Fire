@@ -1,6 +1,8 @@
 #include "Home.h"
 #include "iostream"
 #include <QGraphicsScene>
+#include <QTextDocument>
+#include <QMessageBox>
 using namespace std;
 
 
@@ -9,9 +11,7 @@ Home::Home() {
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     showFullScreen();
-    /*QPixmap pixmap(":/images/bg1");
-    cout<<height()<<endl<<width();
-    pixmap = pixmap.scaled(height(),width(),Qt::AspectRatioMode::IgnoreAspectRatio);*/
+
     auto scene = new QGraphicsScene(this);
     auto background = new Background();
     scene->addItem(background);
@@ -23,8 +23,6 @@ Home::Home() {
     textField->setPlainText("");
     textField1->setPlainText("");
     scene->setSceneRect(0,0,width(),height());
-   // scene->setBackgroundBrush(QBrush(pixmap));
-   // scene->setBackgroundBrush(QBrush("#41E3F0"));
 
     setScene(scene);
     scene->addItem(textField);
@@ -55,5 +53,25 @@ Home::Home() {
 void Home::onGameStart() {
    auto name = textField->toPlainText();
    auto name1 =textField1->toPlainText();
+   if(textField->document()->isEmpty()== true && textField1->document()->isEmpty()==true){
+       QMessageBox messageBox;
+       messageBox.critical(0,"Error","please enter players names!");
+       messageBox.setFixedSize(500,200);
+   }
+    if( textField1->document()->isEmpty()==true){
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","please enter player 1 name!");
+        messageBox.setFixedSize(500,200);
+    }
+    if(textField->document()->isEmpty()== true ){
+        QMessageBox messageBox;
+        messageBox.critical(0,"Error","please enter player 2 name!");
+        messageBox.setFixedSize(500,200);
+    }
+
+    if(textField->document()->isEmpty()== false && textField1->document()->isEmpty()==false) {
+        close();
+        (new Game(name,name1))->show();
+    }
 }
 

@@ -1,4 +1,4 @@
-#ifndef PLAY_WITH_FIRE_GAME_H
+ #ifndef PLAY_WITH_FIRE_GAME_H
 #define PLAY_WITH_FIRE_GAME_H
 
 #include <QGraphicsView>
@@ -10,7 +10,7 @@
 class Game : public QGraphicsView{
     Q_OBJECT
 public:
-    Game();
+    Game(QString name, QString name1);
 };
 
 

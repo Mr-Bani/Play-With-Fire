@@ -1,5 +1,11 @@
-//
-// Created by Mahdi on 7/13/2022.
-//
-
 #include "Wall.h"
+#include <QGraphicsScene>
+
+Wall::Wall(int width, int height)  {
+
+
+    QPixmap pixmap(":/images/wall");
+    pixmap = pixmap.scaled(width , height);
+    setPixmap(pixmap);
+
+}

@@ -4,6 +4,7 @@
 #include "../views/TextField.h"
 #include "../views/Background.h"
 #include "../views/label.h"
+#include "../windows//Game.h"
 #include "../views/Button.h"
 class Home : public QGraphicsView
         {

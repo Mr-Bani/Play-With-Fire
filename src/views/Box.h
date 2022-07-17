@@ -1,14 +1,16 @@
-//
-// Created by Mahdi on 7/13/2022.
-//
-
 #ifndef PLAY_WITH_FIRE_BOX_H
 #define PLAY_WITH_FIRE_BOX_H
 
+#include <QGraphicsPixmapItem>
+#include "Block.h"
 
-class Box {
+class Box : public QGraphicsPixmapItem  {
+public:
+    Box(int width , int height);
 
-
+private:
+    int width;
+    int height;
 };
 
 
