@@ -12,16 +12,17 @@
 
 
 
+
 class Player : public QObject, public QGraphicsPixmapItem {
 Q_OBJECT
-    Q_PROPERTY(qreal height READ x WRITE setX)
-    Q_PROPERTY(qreal width READ y WRITE setY)
+Q_PROPERTY(qreal height READ x WRITE setX)
+Q_PROPERTY(qreal width READ y WRITE setY)
 
 
 private:
     QString name;
     int score{},bombCount{100},lifeCount{5},speed{3},screenWidth,screenHeight,id;
-    int positionX, positionY,playerWidth{100},playerHeight{155};
+    int positionX, positionY,playerWidth{65},playerHeight{101};
     double bombRadius;
     bool moving{false},isIdle{true};
     QPixmap* pixmaps = new QPixmap[5];
@@ -32,7 +33,7 @@ public:
     Player(QString name,int x, int y, int screenWIdth, int screenHeight,int id);
     Player(const Player &p);
     void setSpeed(int speed);
-    int whichFoot{1},whichPixmap{0};
+    int whichFoot{1},whichPixmap{0},prevPixmap{0};
     void setBombCount(int bombCount);
     void setLifeCount(int lifeCount);
     void setBombRadius(double bombRadius);

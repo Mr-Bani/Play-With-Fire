@@ -178,10 +178,10 @@ void Player::setPositionY(int y) {
 }
 
 void Player::idle() {
-
 if(isIdle && whichPixmap!=0){
     setPixmap(pixmaps[0]);
     whichPixmap = 0;
+    setmoving(false);
 }
 }
 

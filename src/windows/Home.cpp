@@ -38,6 +38,7 @@ Home::Home() {
     scene->addItem(Label);
     Label->setPos(width()/1.4,(height()/1.6));
 
+
     auto Label1 = new label();
     Label1->setPlainText("player 2:");
     scene->addItem(Label1);
