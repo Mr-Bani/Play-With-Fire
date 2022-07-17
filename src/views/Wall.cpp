@@ -1,11 +1,6 @@
 #include "Wall.h"
 #include <QGraphicsScene>
 
-Wall::Wall(int width, int height)  {
-
-
-    QPixmap pixmap(":/images/wall");
-    pixmap = pixmap.scaled(width , height);
-    setPixmap(pixmap);
+Wall::Wall(int x, int y , int width, int height) : Block(x,y,width,height,"Wall")  {
 
 }

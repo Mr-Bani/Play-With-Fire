@@ -1,7 +1,8 @@
 #include "Game.h"
 #include <QDebug>
 
-Game::Game() : QGraphicsView() {
+
+Game::Game(QString name1, QString name2) : QGraphicsView() {
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     showFullScreen();
@@ -14,11 +15,11 @@ Game::Game() : QGraphicsView() {
     scene->setBackgroundBrush(QBrush("#41E3F0"));
     setScene(scene);
     player1 = new Player(name1, 0, 0, width(), height(), 1);
-    player1->setSpeed(20);
+    player1->setSpeed(10);
     scene->addItem(player1);
     setScene(scene);
     player2 = new Player(name2, width()-player1->getWidth(), height()-player1->getHeight(), width(), height(), 2);
-    player2->setSpeed(20);
+    player2->setSpeed(5);
     scene->addItem(player2);
     setFocus();
 
@@ -28,12 +29,12 @@ Game::Game() : QGraphicsView() {
 
     for (int i = 0; i < 15; ++i)
         for (int j = 0; j < 15; ++j) {
-            if(i !=0 && i!= 14 && j!= 0 && j!=14 &&(j%2 != 0 || i % 2 != 0))
+            if(i !=0 && i!= 14 && j!= 0 && j!=14 &&(j%3 != 0 || i % 4 == 0))
                 continue;
-            auto wall = new Wall(blockWidth,blockHeight);
+            auto wall = new Wall(blockWidth*i,blockHeight*j,blockWidth,blockHeight);
             scene->addItem(wall);
-            wall->setPos(blockWidth*i,blockHeight*j);
         }
+}
 
 
 

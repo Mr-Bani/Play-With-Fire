@@ -4,13 +4,9 @@
 #include <QGraphicsPixmapItem>
 #include "Block.h"
 #include <QGraphicsView>
-class Wall: public QGraphicsPixmapItem {
+class Wall: public Block {
 public:
-    Wall(int width , int height);
-
-private:
-    int width;
-    int height;
+    Wall(int x , int y , int width , int height);
 };
 
 

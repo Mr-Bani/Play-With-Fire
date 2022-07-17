@@ -1,10 +1,34 @@
 #ifndef PLAY_WITH_FIRE_BLOCK_H
 #define PLAY_WITH_FIRE_BLOCK_H
+#include <Qstring>
+#include <QGraphicsPixmapItem>
 
-
-class Block {
+class Block :public QGraphicsPixmapItem{
 public:
-    Block();
+    Block(int x, int y,int width,int height,QString type);
+
+    int getWidth() const;
+
+    void setWidth(int width);
+
+    int getHeight() const;
+
+    void setHeight(int height);
+
+
+private:
+    int positionX;
+    int positionY;
+    int width;
+    int height;
+public:
+    int getPositionX() const;
+
+    void setPositionX(int positionX);
+
+    int getPositionY() const;
+
+    void setPositionY(int positionY);
 
 };
 
