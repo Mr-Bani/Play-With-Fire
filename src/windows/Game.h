@@ -8,6 +8,7 @@
 #include "../views/Wall.h"
 #include <QTimer>
 #include <QString>
+#include <QDebug>
 
 class Game : public QGraphicsView {
 Q_OBJECT
@@ -18,7 +19,11 @@ public:
 
 
     void keyPressEvent(QKeyEvent *event);
-    //bool canImove(int x, int y);
+
+    bool canMove(Player *player, QString direction);
+
+private:
+    QVector <Block> boxes;
 };
 
 

@@ -197,3 +197,4 @@ int Player::getHeight() {
 int Player::getWidth() {
     return playerWidth;
 }
+

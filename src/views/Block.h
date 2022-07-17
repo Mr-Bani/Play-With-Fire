@@ -6,6 +6,8 @@
 class Block :public QGraphicsPixmapItem{
 public:
     Block(int x, int y,int width,int height,QString type);
+    Block(const Block &b);
+    Block& operator=(const Block &other);
 
     int getWidth() const;
 

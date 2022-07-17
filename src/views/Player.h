@@ -9,6 +9,8 @@
 #include <QPropertyAnimation>
 #include <Qtimer>
 #include <QGraphicsItemAnimation>
+#include <QStyleOptionGraphicsItem>
+#include "Wall.h"
 
 
 
@@ -28,6 +30,7 @@ private:
     QPixmap* pixmaps = new QPixmap[5];
     QPropertyAnimation* xAnimator, *yAnimator;
     QTimer* walkingTimer;
+    bool canImove;
 
 public:
     Player(QString name,int x, int y, int screenWIdth, int screenHeight,int id);

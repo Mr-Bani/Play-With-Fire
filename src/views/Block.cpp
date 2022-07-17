@@ -44,3 +44,28 @@ void Block::setPositionY(int positionY) {
     setPos(positionX,positionY);
     this->positionY = positionY;
 }
+
+Block::Block(const Block &b) {
+    positionX = b.positionX;
+    positionY = b.positionY;
+    width = b.width;
+    height = b.height;
+    setPos(positionX,positionY);
+    QPixmap pixmap(":/images/wall");
+    pixmap = pixmap.scaled(width , height);
+    setPixmap(pixmap);
+
+}
+
+Block &Block::operator=(const Block &other) {
+    positionX = other.positionX;
+    positionY = other.positionY;
+    width = other.width;
+    height = other.height;
+    setPos(positionX,positionY);
+    QPixmap pixmap(":/images/wall");
+    pixmap = pixmap.scaled(width , height);
+    setPixmap(pixmap);
+    return *this;
+
+}

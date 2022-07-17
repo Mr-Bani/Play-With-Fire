@@ -13,95 +13,108 @@ Game::Game(QString name1, QString name2) : QGraphicsView() {
     scene->setSceneRect(0, 0, width(), height());
     //scene->setBackgroundBrush(QBrush(pixmap));
     scene->setBackgroundBrush(QBrush("#41E3F0"));
+
+    auto blockWidth = width() / 15;
+    auto blockHeight = height() / 15;
     setScene(scene);
-    player1 = new Player(name1, 0, 0, width(), height(), 1);
+    player1 = new Player(name1, blockWidth, blockHeight, width(), height(), 1);
     player1->setSpeed(10);
     scene->addItem(player1);
     setScene(scene);
-    player2 = new Player(name2, width()-player1->getWidth(), height()-player1->getHeight(), width(), height(), 2);
+    player2 = new Player(name2, width() - player1->getWidth() - blockWidth,
+                         height() - player1->getHeight() - blockHeight, width(), height(), 2);
     player2->setSpeed(5);
     scene->addItem(player2);
     setFocus();
 
-    auto blockWidth = width()/15;
-    auto blockHeight = height()/15;
-
 
     for (int i = 0; i < 15; ++i)
         for (int j = 0; j < 15; ++j) {
-            if(i !=0 && i!= 14 && j!= 0 && j!=14 &&(j%3 != 0 || i % 4 == 0))
+            if (i != 0 && i != 14 && j != 0 && j != 14 && (i % 10 != 0 && j % 10 != 0))
                 continue;
-            auto wall = new Wall(blockWidth*i,blockHeight*j,blockWidth,blockHeight);
-            scene->addItem(wall);
+                auto wall = new Wall(blockWidth * i, blockHeight * j, blockWidth, blockHeight);
+                scene->addItem(wall);
+                boxes.append(*wall);
+            }
         }
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     void Game::keyPressEvent(QKeyEvent *event) {
 
-    if (event->key() == Qt::Key_Up) {
-        player1->setmoving(true);
-        if (player1->getPositionY() > 0) {
-            player1->goUp();
-        }
-        player1->setmoving(false);
 
-    } else if (event->key() == Qt::Key_Down) {
-        player1->setmoving(true);
-        if (player1->getPositionY() + player1->getHeight() < height()) {
-            player1->goDown();
-        }
-        player1->setmoving(false);
-    } else if (event->key() == Qt::Key_Left) {
-        player1->setmoving(true);
-        if (player1->getPositionX() > 0) {
-            player1->goLeft();
-        }
-        player1->setmoving(false);
-    } else if (event->key() == Qt::Key_Right) {
-        player1->setmoving(true);
-        if (player1->getPositionX() + player1->getWidth() < width()) {
-            player1->goRight();
-        }
-        player1->setmoving(false);
-    } else if (event->key() == Qt::Key_W) {
-        player2->setmoving(true);
-        if (player2->getPositionY() > 0) {
-            player2->goUp();
-        }
-        player2->setmoving(false);
+        if (event->key() == Qt::Key_Up) {
+            player1->setmoving(true);
+            if (player1->getPositionY() > 0 && canMove(player1, "Up")) {
+                player1->goUp();
+            }
+            player1->setmoving(false);
 
-    } else if (event->key() == Qt::Key_S) {
-        player2->setmoving(true);
-        if (player2->getPositionY() + player2->getHeight() < height()) {
-            player2->goDown();
+
+        } else if (event->key() == Qt::Key_Down) {
+            player1->setmoving(true);
+            if (player1->getPositionY() + player1->getHeight() < height() && canMove(player1, "Down")) {
+                player1->goDown();
+            }
+            player1->setmoving(false);
+        } else if (event->key() == Qt::Key_Left) {
+            player1->setmoving(true);
+            if (player1->getPositionX() > 0 && canMove(player1, "Left")) {
+                player1->goLeft();
+            }
+            player1->setmoving(false);
+        } else if (event->key() == Qt::Key_Right) {
+            player1->setmoving(true);
+            if (player1->getPositionX() + player1->getWidth() < width() && canMove(player1, "Right")) {
+                player1->goRight();
+            }
+            player1->setmoving(false);
+        } else if (event->key() == Qt::Key_W) {
+            if (player2->getPositionY() > 0 && canMove(player2, "Up")) {
+                player2->goUp();
+            }
+            player2->setmoving(false);
+
+        } else if (event->key() == Qt::Key_S) {
+            player2->setmoving(true);
+            if (player2->getPositionY() + player2->getHeight() < height() && canMove(player2, "Down")) {
+                player2->goDown();
+            }
+            player2->setmoving(false);
+        } else if (event->key() == Qt::Key_A) {
+            player2->setmoving(true);
+            if (player2->getPositionX() > 0 && canMove(player2, "Left")) {
+                player2->goLeft();
+            }
+            player2->setmoving(false);
+        } else if (event->key() == Qt::Key_D) {
+            player2->setmoving(true);
+            if (player2->getPositionX() + player2->getWidth() < width() && canMove(player2, "Right")) {
+                player2->goRight();
+            }
+            player2->setmoving(false);
         }
-        player2->setmoving(false);
-    } else if (event->key() == Qt::Key_A) {
-        player2->setmoving(true);
-        if (player2->getPositionX() > 0) {
-            player2->goLeft();
-        }
-        player2->setmoving(false);
-    } else if (event->key() == Qt::Key_D) {
-        player2->setmoving(true);
-        if (player2->getPositionX() + player2->getWidth() < width()) {
-            player2->goRight();
-        }
-        player2->setmoving(false);
+
     }
 
-}
-
+    bool Game::canMove(Player *player, QString direction) {
+        for (auto &box: boxes) {
+            if (direction == "Up" && ((box.getPositionX()<player->getPositionX() && box.getPositionX()+box.getWidth() > player->getPositionX() )||(box.getPositionX()<player->getPositionX() + player->getWidth() && box.getPositionX()+box.getWidth() > player->getPositionX() + player->getWidth()))){
+                if ((box.getPositionY()<player->getPositionY() - player->getSpeed() ) && (box.getPositionY()+box.getHeight()>player->getPositionY() - player->getSpeed() )) {
+                    return false;
+                }
+            } else if (direction == "Down" && ((box.getPositionX()<player->getPositionX() && box.getPositionX()+box.getWidth() > player->getPositionX() )||(box.getPositionX()<player->getPositionX() + player->getWidth() && box.getPositionX()+box.getWidth() > player->getPositionX() + player->getWidth()))) {
+                if ((box.getPositionY()<player->getPositionY() + player->getSpeed() + player->getHeight()) && (box.getPositionY()+box.getHeight()>player->getPositionY() + player->getSpeed() + player->getHeight())) {
+                    return false;
+                }
+            } else if (direction == "Left" && ((box.getPositionY()<player->getPositionY() && box.getPositionY()+box.getHeight() > player->getPositionY() )||(box.getPositionY()<player->getPositionY() + player->getHeight() && box.getPositionY()+box.getHeight() > player->getPositionY() + player->getHeight()))) {
+                if ((box.getPositionX()<player->getPositionX() - player->getSpeed() ) && (box.getPositionX()+box.getWidth()>player->getPositionX() - player->getSpeed() )) {
+                    return false;
+                }
+            } else if (direction == "Right" && ((box.getPositionY()<player->getPositionY() && box.getPositionY()+box.getHeight() > player->getPositionY() )||(box.getPositionY()<player->getPositionY() + player->getHeight() && box.getPositionY()+box.getHeight() > player->getPositionY() + player->getHeight()))) {
+                if ((box.getPositionX()<player->getPositionX() + player->getSpeed() + player->getWidth()) && (box.getPositionX()+box.getWidth()>player->getPositionX() + player->getSpeed() + player->getWidth())) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
