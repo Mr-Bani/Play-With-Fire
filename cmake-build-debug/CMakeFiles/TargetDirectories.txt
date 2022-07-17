@@ -1,4 +1,0 @@
-C:/Users/Pars/CLionProjects/Play-With-Fire/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Pars/CLionProjects/Play-With-Fire/cmake-build-debug/CMakeFiles/Play_With_Fire.dir
-C:/Users/Pars/CLionProjects/Play-With-Fire/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Pars/CLionProjects/Play-With-Fire/cmake-build-debug/CMakeFiles/Play_With_Fire_autogen.dir

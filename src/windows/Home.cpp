@@ -36,6 +36,7 @@ Home::Home() {
     scene->addItem(Label);
     Label->setPos(width()/1.4,(height()/1.6));
 
+
     auto Label1 = new label();
     Label1->setPlainText("player 2:");
     scene->addItem(Label1);
@@ -43,7 +44,7 @@ Home::Home() {
 
 
     auto start = new Button(150,60);
-    start->setPlainText("         start");
+    start->setPlainText("start");
     scene->addItem(start);
     start->setPos(width()/2.4,height()/1.3);
 

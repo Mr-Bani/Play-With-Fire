@@ -1,4 +1,4 @@
- #ifndef PLAY_WITH_FIRE_GAME_H
+#ifndef PLAY_WITH_FIRE_GAME_H
 #define PLAY_WITH_FIRE_GAME_H
 
 #include <QGraphicsView>
@@ -6,11 +6,19 @@
 #include "../views/Player.h"
 #include "../views/Box.h"
 #include "../views/Wall.h"
+#include <QTimer>
+#include <QString>
 
-class Game : public QGraphicsView{
-    Q_OBJECT
+class Game : public QGraphicsView {
+Q_OBJECT
 public:
-    Game(QString name, QString name1);
+    Player *player1, *player2;
+    QTimer* walkingTimer;
+    Game(QString name1, QString name2);
+
+
+    void keyPressEvent(QKeyEvent *event);
+    //bool canImove(int x, int y);
 };
 
 
