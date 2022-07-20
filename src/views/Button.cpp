@@ -3,7 +3,7 @@
 #include <QPainter>
 #include <QTextDocument>
 Button::Button(int width, int height) :width(width), height(height), QGraphicsTextItem(){
-    setDefaultTextColor("black");
+    setDefaultTextColor("white");
     QFont f;
     f.setBold(true);
     f.setPixelSize(15);
@@ -18,7 +18,9 @@ void Button::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     painter->setBrush(pixmap);
     painter->drawRect(boundingRect());
     setTextWidth(width);
-    QGraphicsTextItem::paint(painter, option, widget);
+    QStyleOptionGraphicsItem myoption = *option;
+    myoption.state = QStyle::State_None;
+    QGraphicsTextItem::paint(painter, &myoption, widget);
 }
 
 void Button::mousePressEvent(QGraphicsSceneMouseEvent *event) {

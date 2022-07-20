@@ -3,10 +3,16 @@
 Player::Player(QString name,int x, int y, int screenWidth, int screenHeight,int id):id(id),name(name),positionX(x),positionY(y),screenHeight(screenHeight), screenWidth(screenWidth) {
     setFlag(QGraphicsItem::ItemIsFocusable);
     setAcceptHoverEvents(true);
-
+if(id==1){
     pixmaps[0] = QPixmap (":/images/player");
 pixmaps[1] = QPixmap (":/images/player-right");
-pixmaps[2] = QPixmap (":/images/player-left");
+pixmaps[2] = QPixmap (":/images/player-left");}
+else{
+    pixmaps[0] = QPixmap (":/images/player2");
+    pixmaps[1] = QPixmap (":/images/player-right2");
+    pixmaps[2] = QPixmap (":/images/player-left2");
+
+}
 walkingTimer = new QTimer();
 walkingTimer->setInterval(500);
 walkingTimer->start();

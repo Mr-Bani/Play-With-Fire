@@ -3,6 +3,7 @@
 #include <QGraphicsScene>
 #include <QTextDocument>
 #include <QMessageBox>
+#include <QPixmap>
 using namespace std;
 
 
@@ -47,8 +48,24 @@ Home::Home() {
     start->setPlainText("start");
     scene->addItem(start);
     start->setPos(width()/2.4,height()/1.3);
-
     connect(start, &Button::onPress , this , &Home::onGameStart );
+
+    QGraphicsPixmapItem *pixmap = new QGraphicsPixmapItem();
+    pixmap->setPixmap(QPixmap(":/images/player-copy").scaled(150,150));
+    pixmap->setPos(width()/6,height()/2.5);
+    scene->addItem(pixmap);
+
+    QGraphicsPixmapItem *pixmap2 = new QGraphicsPixmapItem();
+    pixmap2->setPixmap(QPixmap(":/images/player-copy2").scaled(150,150));
+    pixmap2->setPos(width()/1.4,height()/2.5);
+    scene->addItem(pixmap2);
+
+
+
+    auto comboBox = new QComboBox();
+    comboBox->addItem("Mario");
+    comboBox->addItem("Luigi");
+    comboBox->addItem("Peach");
 }
 
 void Home::onGameStart() {

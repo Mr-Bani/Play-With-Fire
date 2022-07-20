@@ -1,15 +1,16 @@
 #include "label.h"
-#include <QFont>
-#include <QTextDocument>
-#include <QPainter>
-#include "QStyleOptionGraphicsItem"
-#include <QTextDocument>
 
 label::label() {
-    setDefaultTextColor("black");
+    setDefaultTextColor("white");
     QFont f;
     f.setBold(true);
-    f.setPixelSize(15);
+    f.setPixelSize(18);
     setFont(f);
     document()->setDocumentMargin(18);
+}
+
+void label::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) {
+    QStyleOptionGraphicsItem myOption = *option;
+    myOption.state &= ~QStyle::State_None;
+    QGraphicsTextItem::paint(painter, &myOption, widget);
 }

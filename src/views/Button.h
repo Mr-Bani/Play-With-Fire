@@ -2,6 +2,7 @@
 #ifndef PLAY_WITH_FIRE_BUTTON_H
 #define PLAY_WITH_FIRE_BUTTON_H
 #include <QGraphicsTextItem>
+#include <QStyleOptionGraphicsItem>
 class Button : public QGraphicsTextItem{
     Q_OBJECT
 private:

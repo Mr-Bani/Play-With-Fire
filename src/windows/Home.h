@@ -7,6 +7,7 @@
 #include "../views/label.h"
 #include "../windows//Game.h"
 #include "../views/Button.h"
+#include <QComboBox>
 
 class Home : public QGraphicsView {
 Q_OBJECT

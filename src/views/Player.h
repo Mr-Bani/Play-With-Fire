@@ -24,7 +24,7 @@ Q_PROPERTY(qreal width READ y WRITE setY)
 private:
     QString name;
     int score{},bombCount{100},lifeCount{5},speed{3},screenWidth,screenHeight,id;
-    int positionX, positionY,playerWidth{65},playerHeight{101};
+    int positionX, positionY,playerWidth{37},playerHeight{45};
     double bombRadius;
     bool moving{false},isIdle{true};
     QPixmap* pixmaps = new QPixmap[5];

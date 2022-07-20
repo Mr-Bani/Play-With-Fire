@@ -1,7 +1,10 @@
  #ifndef PLAY_WITH_FIRE_TEXTFIELD_H
 #define PLAY_WITH_FIRE_TEXTFIELD_H
 #include <QGraphicsTextItem>
-
+#include <QFont>
+#include <QPainter>
+#include <QTextDocument>
+#include <QStyleOptionGraphicsItem>
 
 
 class TextField : public QGraphicsTextItem{
