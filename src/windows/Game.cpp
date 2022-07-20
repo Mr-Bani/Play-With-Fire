@@ -17,24 +17,30 @@ Game::Game(QString name1, QString name2) : QGraphicsView() {
     auto blockWidth = width() / 15;
     auto blockHeight = height() / 15;
     setScene(scene);
-    player1 = new Player(name1, blockWidth, blockHeight, width(), height(), 1);
+    QVector <int> mikeVector;
+    mikeVector.append(15);
+    mikeVector.append(15);
+    mikeVector.append(15);
+    mikeVector.append(15);
+    auto characters = *new QMap<QString, QVector<int>>();
+    player1 = new Player(name1, blockWidth, blockHeight, width(), height(), 1,"mike",characters);
     player1->setSpeed(20);
     scene->addItem(player1);
     setScene(scene);
     player2 = new Player(name2, width() - player1->getWidth() - blockWidth,
-                         height() - player1->getHeight() - blockHeight, width(), height(), 2);
+                         height() - player1->getHeight() - blockHeight, width(), height(), 2,"mike",characters);
     player2->setSpeed(10);
     scene->addItem(player2);
     setFocus();
 
-
+/*
     for (int i = 0; i < 15; ++i)
         for (int j = 0; j < 15; ++j) {
             if (!(i != 0 && i != 14 && j != 0 && j != 14 && (j%3!= 0 || i%2 !=0) )){
             auto wall = new Wall(blockWidth * i, blockHeight * j, blockWidth, blockHeight);
             scene->addItem(wall);
             boxes.append(*wall);}
-        }
+        }*/
     qDebug()<<width()<<height();
     for(int i=0;i<boxes.size();i++){
         qDebug()<<boxes[i].getPositionX()<<boxes[i].getPositionY();
@@ -44,55 +50,56 @@ Game::Game(QString name1, QString name2) : QGraphicsView() {
 
 void Game::keyPressEvent(QKeyEvent *event) {
     if (event->key() == Qt::Key_Up) {
-        player1->setmoving(true);
+        if(!player1->isFlipped()){player1->flip();}
+        player1->setState("Walking");
         if (player1->getPositionY() > 0 && canMove(player1, "Up")) {
             player1->goUp();
         }
-        player1->setmoving(false);
 
 
     } else if (event->key() == Qt::Key_Down) {
-        player1->setmoving(true);
+        if(player1->isFlipped()){player1->flip();}
+        player1->setState("Walking");
         if (player1->getPositionY() + player1->getHeight() < height() && canMove(player1, "Down")) {
             player1->goDown();
         }
-        player1->setmoving(false);
     } else if (event->key() == Qt::Key_Left) {
-        player1->setmoving(true);
+        if(!player1->isFlipped()){player1->flip();}
+        player1->setState("Walking");
         if (player1->getPositionX() > 0 && canMove(player1, "Left")) {
             player1->goLeft();
         }
-        player1->setmoving(false);
     } else if (event->key() == Qt::Key_Right) {
-        player1->setmoving(true);
+        if(player1->isFlipped()){player1->flip();}
+        player1->setState("Walking");
         if (player1->getPositionX() + player1->getWidth() < width() && canMove(player1, "Right")) {
             player1->goRight();
         }
-        player1->setmoving(false);
     } else if (event->key() == Qt::Key_W) {
+        if(!player2->isFlipped()){player2->flip();}
+        player2->setState("Walking");
         if (player2->getPositionY() > 0 && canMove(player2, "Up")) {
             player2->goUp();
         }
-        player2->setmoving(false);
 
     } else if (event->key() == Qt::Key_S) {
-        player2->setmoving(true);
+        if(player2->isFlipped()){player2->flip();}
+        player2->setState("Walking");
         if (player2->getPositionY() + player2->getHeight() < height() && canMove(player2, "Down")) {
             player2->goDown();
         }
-        player2->setmoving(false);
     } else if (event->key() == Qt::Key_A) {
-        player2->setmoving(true);
+        if(!player2->isFlipped()){player2->flip();}
+        player2->setState("Walking");
         if (player2->getPositionX() > 0 && canMove(player2, "Left")) {
             player2->goLeft();
         }
-        player2->setmoving(false);
     } else if (event->key() == Qt::Key_D) {
-        player2->setmoving(true);
+        if(player2->isFlipped()){player2->flip();}
+        player2->setState("Walking");
         if (player2->getPositionX() + player2->getWidth() < width() && canMove(player2, "Right")) {
             player2->goRight();
         }
-        player2->setmoving(false);
     }
 
 }
