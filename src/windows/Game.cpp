@@ -43,8 +43,6 @@ Game::Game(QString name1, QString name2) : QGraphicsView() {
 
 
 void Game::keyPressEvent(QKeyEvent *event) {
-
-
     if (event->key() == Qt::Key_Up) {
         player1->setmoving(true);
         if (player1->getPositionY() > 0 && canMove(player1, "Up")) {
@@ -98,6 +96,7 @@ void Game::keyPressEvent(QKeyEvent *event) {
     }
 
 }
+
 
 bool Game::canMove(Player *player, QString direction) {
     for (auto &box: boxes) {

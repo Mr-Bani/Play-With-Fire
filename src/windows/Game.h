@@ -19,8 +19,12 @@ public:
 
 
     void keyPressEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event,QKeyEvent *event2);
+
+
 
     bool canMove(Player *player, QString direction);
+
 
 private:
     QVector <Block> boxes;
