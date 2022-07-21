@@ -6,8 +6,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(CMAKE_PREFIX_PATH "E:/Qt/6.2.4/mingw_64")
-#set(CMAKE_PREFIX_PATH "C:/Qt/6.2.4/mingw_64")
+#set(CMAKE_PREFIX_PATH "E:/Qt/6.2.4/mingw_64")
+set(CMAKE_PREFIX_PATH "C:/Qt/6.2.4/mingw_64")
 
 
 
@@ -51,3 +51,4 @@ if (WIN32)
                 "$<TARGET_FILE_DIR:${PROJECT_NAME}>")
     endforeach (QT_LIB)
 endif ()
+
