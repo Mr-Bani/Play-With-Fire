@@ -17,8 +17,10 @@ Player::Player(QString name, int x, int y, int screenWidth, int screenHeight, in
     setState("Idle");
     setPos(x, y);
     pixmapTimer = new QTimer();
-    pixmapTimer->setInterval(50);
+    pixmapTimer->setInterval(100);
     pixmapTimer->start();
+    playerHeight = pixmap().height();
+    playerWidth = pixmap().width();
 
     connect(pixmapTimer, &QTimer::timeout, this, &Player::setpixmap);
     walkingTimer = new QTimer();
@@ -26,7 +28,8 @@ Player::Player(QString name, int x, int y, int screenWidth, int screenHeight, in
     walkingTimer->start();
     connect(walkingTimer, &QTimer::timeout, this, &Player::idle);
 
-//
+
+
 
     xAnimator = new QPropertyAnimation(this, "height", this);
     yAnimator = new QPropertyAnimation(this, "width", this);
@@ -87,10 +90,12 @@ QString Player::getName() {
 }
 
 int Player::getPositionX() {
+    positionX=x();
     return positionX;
 }
 
 int Player::getPositionY() {
+    positionY= y();
     return positionY;
 }
 
@@ -109,12 +114,15 @@ void Player::goUp() {
 }
 
 void Player::goDown() {
+    positionY=y();
     yAnimator->setStartValue(positionY);
-    if (positionY + speed + playerHeight <= screenHeight) {
+    qInfo()<<"positionY: " << positionY<<"player height: " <<playerHeight<< " screenHeight: "<<screenHeight << "Speed" << speed <<"\n";
+    if (positionY + speed + playerHeight < screenHeight) {
         positionY += speed;
+        qInfo()<<"Here\n";
     } else {
         positionY = screenHeight - playerHeight;
-
+        qInfo()<<"there\n";
     }
     yAnimator->setEndValue(positionY);
     yAnimator->setDuration(10);
@@ -180,7 +188,7 @@ void Player::setPositionY(int y) {
 }
 
 void Player::idle() {
-    if (isIdle && whichPixmap != 0) {
+    if (isIdle) {
         setState("Idle");
     }
 }
@@ -191,45 +199,40 @@ void Player::setmoving(bool moving) {
 }
 
 int Player::getHeight() {
-    return playerHeight;
+    return pixmap().height();
 }
 
 int Player::getWidth() {
-    return playerWidth;
+    return pixmap().width();
 }
 
 void Player::setpixmap() {
-    qInfo() << "Working..\n";
+    //qInfo()<<"x: "<<positionX<<" y: "<<positionY<<"\n";
     if (state == "Idle") {
+        pixmapTimer->setInterval(100);
         prevPixmap = whichPixmap;
         whichPixmap++;
         whichPixmap %= 15;
-        setPixmap(idlePixmaps[whichPixmap]);
-
-        qInfo() << whichPixmap << "\n";
+        setPixmap(idlePixmaps[whichPixmap]);;
     } else if (state == "Walking") {
+        pixmapTimer->setInterval(20);
         prevPixmap = whichPixmap;
         whichPixmap++;
         whichPixmap %= 15;
         setPixmap(walkingPixmaps[whichPixmap]);
-
-        qInfo() << whichPixmap << "\n";
     } else if (state == "Running") {
+        pixmapTimer->setInterval(10);
         prevPixmap = whichPixmap;
         whichPixmap++;
         whichPixmap %= 15;
         setPixmap(runningPixmaps[whichPixmap]);
 
-        qInfo() << whichPixmap << "\n";
     } else if (state == "Dead") {
+        pixmapTimer->setInterval(200);
         prevPixmap = whichPixmap;
         whichPixmap++;
         whichPixmap %= 15;
         setPixmap(deadPixmaps[whichPixmap]);
-
-        qInfo() << whichPixmap << "\n";
-
-
     }
 
 
@@ -237,21 +240,22 @@ void Player::setpixmap() {
 
 void Player::readPixmaps() {
     for (int i = 0; i < 15; i++) {
-        idlePixmaps[i] = (QPixmap(":/images/mike-idle" + QString::number(i + 1))).scaled(150, 100, Qt::KeepAspectRatio,
+        idlePixmaps[i] = (QPixmap(":/images/mike-idle" + QString::number(i + 1))).scaled(screenHeight/16, screenHeight/16, Qt::IgnoreAspectRatio,
                                                                                          Qt::SmoothTransformation);
+
     }
     for (int i = 0; i < 15; i++) {
-        walkingPixmaps[i] = (QPixmap(":/images/mike-walk" + QString::number(i + 1))).scaled(150, 100,
-                                                                                            Qt::KeepAspectRatio,
+        walkingPixmaps[i] = (QPixmap(":/images/mike-walk" + QString::number(i + 1))).scaled(screenHeight/16, screenHeight/16,
+                                                                                            Qt::IgnoreAspectRatio,
                                                                                             Qt::SmoothTransformation);
     }
     for (int i = 0; i < 15; i++) {
-        runningPixmaps[i] = (QPixmap(":/images/mike-run" + QString::number(i + 1))).scaled(150, 100,
-                                                                                           Qt::KeepAspectRatio,
+        runningPixmaps[i] = (QPixmap(":/images/mike-run" + QString::number(i + 1))).scaled(screenHeight/16, screenHeight/16,
+                                                                                           Qt::IgnoreAspectRatio,
                                                                                            Qt::SmoothTransformation);
     }
     for (int i = 0; i < 15; i++) {
-        deadPixmaps[i] = (QPixmap(":/images/mike-dead" + QString::number(i + 1))).scaled(150, 100, Qt::KeepAspectRatio,
+        deadPixmaps[i] = (QPixmap(":/images/mike-dead" + QString::number(i + 1))).scaled(screenHeight/16, screenHeight/16, Qt::IgnoreAspectRatio,
                                                                                          Qt::SmoothTransformation);
     }
 
@@ -259,10 +263,11 @@ void Player::readPixmaps() {
 
 void Player::setState(QString state) {
     this->state = state;
-}
+    }
 
 void Player::flip() {
     flipped = !flipped;
+    qInfo() << "PositionX: " << positionX << "PositionY: " << positionY << "\n";
     for (int i = 0; i < 15; i++) {
         idlePixmaps[i] = idlePixmaps[i].transformed(QTransform::fromScale(-1, 1));
     }
@@ -275,7 +280,9 @@ void Player::flip() {
     for (int i = 0; i < 15; i++) {
         deadPixmaps[i] = deadPixmaps[i].transformed(QTransform::fromScale(-1, 1));
     }
+
 }
+
 
 
 bool Player::isFlipped() {
