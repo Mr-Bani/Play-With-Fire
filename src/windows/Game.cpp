@@ -40,7 +40,7 @@ Game::Game(QString name1, QString name2) : QGraphicsView() {
     setFocus();
 
 
-//*
+/*
     for (int i = 0; i < 15; ++i)
         for (int j = 0; j < 15; ++j) {
             if (!(i != 0 && i != 14 && j != 0 && j != 14 && (j%3!= 0 || i%2 !=0) )){
@@ -51,7 +51,8 @@ Game::Game(QString name1, QString name2) : QGraphicsView() {
     qDebug()<<width()<<height();
     for(int i=0;i<boxes.size();i++){
         qDebug()<<boxes[i].getPositionX()<<boxes[i].getPositionY();
-    }}
+    }*/
+    }
 
 
 bool Game::canMove(Player *player, QString direction) {
