@@ -9,25 +9,29 @@
 #include <QTimer>
 #include <QString>
 #include <QDebug>
+#include <QSet>
 
 class Game : public QGraphicsView {
 Q_OBJECT
 public:
     Player *player1, *player2;
-    QTimer* walkingTimer;
+    QTimer* walkingTimer,*keyTimer;
     Game(QString name1, QString name2);
 
 
-    void keyPressEvent(QKeyEvent *event);
-    void keyPressEvent(QKeyEvent *event,QKeyEvent *event2);
+protected:
+    bool eventFilter(QObject *object, QEvent *event) override;
 
+public:
 
 
     bool canMove(Player *player, QString direction);
 
-
+public slots:
+    void handleKeyPress();
 private:
     QVector <Block> boxes;
+    QSet<int> pressedKeys;
 };
 
 
