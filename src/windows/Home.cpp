@@ -63,9 +63,11 @@ Home::Home() {
 
 
     auto comboBox = new QComboBox();
-    comboBox->addItem("Mario");
-    comboBox->addItem("Luigi");
-    comboBox->addItem("Peach");
+    comboBox->addItem("Mike");
+    comboBox->addItem("Ansherli");
+    comboBox->addItem("Rex");
+    comboBox->addItem("Santa");
+
 }
 
 void Home::onGameStart() {
