@@ -3,10 +3,14 @@
 
 Block::Block(int x, int y,int width,int height,QString type) : positionX(x), positionY(y),width(width),height(height){
  if (type=="Wall"){
-        QPixmap pixmap(":/images/wall");
-        pixmap = pixmap.scaled(width , height);
-        setPixmap(pixmap);
+     pixmap =  QPixmap(":/images/wall");
  }
+ else if(type=="Box"){
+     pixmap = QPixmap(":/images/box");
+ }
+
+     pixmap = pixmap.scaled(width , height);
+    setPixmap(pixmap);
     setPos(positionX,positionY);
 
 }

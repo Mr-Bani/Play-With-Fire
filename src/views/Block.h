@@ -23,6 +23,7 @@ private:
     int positionY;
     int width;
     int height;
+    QPixmap pixmap;
 public:
     int getPositionX() const;
 

@@ -17,3 +17,4 @@ public:
 
 
 #endif //PLAY_WITH_FIRE_LABEL_H
+

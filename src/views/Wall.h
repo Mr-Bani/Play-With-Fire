@@ -12,4 +12,4 @@ public:
 
 
 
-#endif //PLAY_WITH_FIRE_BOX_H
+#endif //PLAY_WITH_FIRE_BOXX_H

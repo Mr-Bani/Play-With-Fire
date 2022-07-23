@@ -13,7 +13,8 @@
 #include <QVector>
 #include "Wall.h"
 #include <QMap>
-
+#include <windows.h>
+#include "Item.h"
 
 class Player : public QObject, public QGraphicsPixmapItem {
 Q_OBJECT
@@ -26,18 +27,30 @@ private:
 
     int score{}, bombCount{100}, lifeCount{5}, speed{20}, screenWidth, screenHeight, id;
     int positionX, positionY, playerWidth{100}, playerHeight{150};
-    double bombRadius;
+    double bombRadius{3};
     bool moving{false}, isIdle{true};
     QPixmap *pixmaps = new QPixmap[5];
     QPixmap *idlePixmaps, *walkingPixmaps, *runningPixmaps, *deadPixmaps;
     QPropertyAnimation *xAnimator, *yAnimator;
-    QTimer *walkingTimer, *pixmapTimer, *runningTimer;
-    bool canImove, flipped{false};
-
-
+    QTimer *walkingTimer, *pixmapTimer, *runningTimer,*itemTimer;
+    bool canImove, flipped{false},dead{false};
+    QVector<int> framesInfo;
 public:
-    Player(QString name, int x, int y, int screenWIdth, int screenHeight, int id, QString character,
-           QMap<QString, QVector<int>> characters);
+    bool isDead() const;
+
+    void setDead(bool dead);
+
+    void fillFramesInfo();
+
+private:
+    bool droppedBomb{false};
+public:
+    bool isDroppedBomb() const;
+
+    void setDroppedBomb(bool droppedBomb);
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+
+    Player(QString name, int x, int y, int screenWIdth, int screenHeight, int id, QString character,int speed,int lives);
 
     Player(const Player &p);
 
@@ -102,13 +115,26 @@ public:
     void flip();
 
     bool isFlipped();
+    void injury();
 
 
 public slots:
 
+    void normalSpeed();
+
+    void infBomb();
+
+    void stopItem();
+
     void idle();
 
     void setpixmap();
+
+    void die();
+
+    void readpixampsSlot();
+
+
 };
 
 

@@ -4,19 +4,20 @@
 #include <QGraphicsView>
 #include <QString>
 #include "../views/Player.h"
-#include "../views/Box.h"
+#include "../views/Boxx.h"
 #include "../views/Wall.h"
 #include <QTimer>
 #include <QString>
 #include <QDebug>
 #include <QSet>
+#include "../views/Bomb.h"
 
 class Game : public QGraphicsView {
 Q_OBJECT
 public:
     Player *player1, *player2;
     QTimer* walkingTimer,*keyTimer;
-    Game(QString name1, QString name2);
+    Game(QString name1,QString character1, QString name2,QString character2,int lives);
 
 
 protected:

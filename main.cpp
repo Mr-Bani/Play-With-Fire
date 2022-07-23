@@ -6,7 +6,7 @@
 int main(int argc, char *argv[]) {
 
     QApplication a(argc, argv);
-    auto game = new Game("Akbar","Asghar");
+    auto game = new Game("ali","mike","ahmad","rex",3);
     game->show();
     qInfo()<<game->width()<<" "<<game->height();
     return QApplication::exec();
