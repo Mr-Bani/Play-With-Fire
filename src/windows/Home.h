@@ -8,6 +8,7 @@
 #include "../windows//Game.h"
 #include "../views/Button.h"
 #include <QComboBox>
+#include <QFile>
 
 class Home : public QGraphicsView {
 Q_OBJECT

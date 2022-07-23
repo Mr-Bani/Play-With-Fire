@@ -7,6 +7,7 @@
 #include <QTimer>
 #include <QDebug>
 
+
 class Item: public QGraphicsPixmapItem {
 private:
     QString type;
@@ -15,6 +16,7 @@ private:
 
 public:
     Item(int x, int y , int width,int height,int rand);
+
     QString getType();
 };
 

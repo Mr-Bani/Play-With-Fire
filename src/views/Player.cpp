@@ -6,18 +6,11 @@ Player::Player(QString name, int x, int y, int screenWidth, int screenHeight, in
                             screenHeight(screenHeight), screenWidth(screenWidth),
                             character(character), speed(speed), lifeCount(lives) {
     setFlag(QGraphicsItem::ItemIsFocusable);
-    qInfo() << "Fuck0";
     fillFramesInfo();
-    qInfo() << framesInfo;
     idlePixmaps = new QPixmap[framesInfo[0]];
-    qInfo() << "Fuck1";
     walkingPixmaps = new QPixmap[framesInfo[1]];
-    qInfo() << "Fuck10";
     runningPixmaps = new QPixmap[framesInfo[2]];
-    qInfo() << "Fuck11";
     deadPixmaps = new QPixmap[framesInfo[3]];
-    qInfo() << "Fuck12";
-    qInfo() << "Fuck";
     readPixmaps();
     setPixmap(idlePixmaps[0]);
     whichPixmap = 0;
@@ -28,7 +21,6 @@ Player::Player(QString name, int x, int y, int screenWidth, int screenHeight, in
     pixmapTimer->start();
     playerHeight = pixmap().height();
     playerWidth = pixmap().width();
-    qInfo() << "Fuck2";
     connect(pixmapTimer, &QTimer::timeout, this, &Player::setpixmap);
     walkingTimer = new QTimer();
     walkingTimer->setInterval(250);
@@ -116,7 +108,6 @@ void Player::goUp() {
     yAnimator->setDuration(10);
     yAnimator->start();
     //setPos(positionX,positionY);
-    //qInfo()<<positionX<<" " << positionY<<" " << screenWidth<<" " <<screenHeight << " \n";
 }
 
 void Player::goDown() {

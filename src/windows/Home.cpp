@@ -35,7 +35,13 @@ Home::Home() {
 
     scene->addItem(livesNumber);
     livesNumber->setPos((width()-100) / 2, height() / 1.5);
-
+    QFile historyFile("history.txt");
+    if (historyFile.open(QIODevice::ReadOnly)) {
+        name1->setPlainText(historyFile.readLine());
+        name2->setPlainText(historyFile.readLine());
+        livesNumber->setPlainText(historyFile.readLine());
+    }
+    historyFile.close();
     Label1 = new label();
     Label1->setPlainText("Player 2:");
     scene->addItem(Label1);
@@ -131,6 +137,11 @@ void Home::onGameStart() {
     }
     else if (name1->document()->isEmpty() == false && name2->document()->isEmpty() == false) {
         (new Game(namee1,character1, namee2,character2,lives))->show();
+        QFile file("history.txt");
+        if (file.open(QIODevice::WriteOnly )){
+            file.write(namee1.toUtf8()+"\n"+namee2.toUtf8()+"\n"+QString::number(lives).toUtf8());
+        }
+        file.close();
         close();
     }
 }

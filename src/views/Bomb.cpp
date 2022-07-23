@@ -70,9 +70,11 @@ void Bomb::explodeit() {
 
             auto playerr = dynamic_cast<Player*>(item);
         if(playerr!= nullptr){
+            if(player!=playerr){player->scoreUp(50);}
             playerr->injury();
         }
         else{
+            player->scoreUp(5);
             delete item;}
     }
 }

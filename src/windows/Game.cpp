@@ -15,6 +15,8 @@ Game::Game(QString name1, QString character1, QString name2, QString character2,
     //scene->setBackgroundBrush(QBrush(pixmap));
     scene->setBackgroundBrush(QBrush("#75FA8D"));
 
+
+
     auto blockWidth = (width()) / 15;
     auto blockHeight = (height() - height() / 10) / 12;
     setScene(scene);
@@ -31,7 +33,23 @@ Game::Game(QString name1, QString character1, QString name2, QString character2,
     connect(keyTimer, &QTimer::timeout, this, &Game::handleKeyPress);
     keyTimer->start();
     setFocus();
-qInfo()<<"hello";
+
+    Score1 = new label();
+    Score1->setPlainText(player1->getName()+" Score:"+ QString::number(player2->getScore())  +" Lives: "+QString::number(player1->getLifeCount()));
+    scene->addItem(Score1);
+
+    Score2 = new label();
+    Score2->setPlainText(player2->getName()+" Score: 0 Lives: "+QString::number(player2->getLifeCount()));
+    scene->addItem(Score2);
+    Score1->setPos((width()/8),height() - height()/9);
+    Score1->setDefaultTextColor("red");
+    Score2->setPos(width()-width()/5,height() - height()/9);
+    Score2->setDefaultTextColor("red");
+    scoreTimer = new QTimer();
+    scoreTimer->setInterval(10);
+    scoreTimer->start();
+    connect(scoreTimer, &QTimer::timeout, this, &Game::updateScores);
+
 
 
     for (int i = 0; i < 15; ++i) {
@@ -39,29 +57,28 @@ qInfo()<<"hello";
             if (i == 0 || i == 14 || j == 0 || j == 11) {
                 auto wall = new Wall(blockWidth * (i), blockHeight * j, blockWidth, blockHeight);
                 scene->addItem(wall);
-                boxes.append(*wall);
+                blocks.append(*wall);
             }
             else if((i==1 || i==13)&&(j!=1 && j!=10 &&j!=2 && j!=9) || ((j==2 || j==10)&&(i>=3 && i<=11))){
                 auto box = new Boxx(blockWidth * (i), blockHeight * j, blockWidth, blockHeight);
                 scene->addItem(box);
-                boxes.append(*box);
+                blocks.append(*box);
             }
             else if(j!=1 && j!=10 &&j!=2 && j!=9 && i%2==1){
                 auto box = new Boxx(blockWidth * (i), blockHeight * j, blockWidth, blockHeight);
                 scene->addItem(box);
-                boxes.append(*box);
+                blocks.append(*box);
             }
             else if(i%2==0 &&j%2==1){
                 auto wall = new Wall(blockWidth * (i), blockHeight * j, blockWidth, blockHeight);
                 scene->addItem(wall);
-                boxes.append(*wall);
+                blocks.append(*wall);
             }
 
 
         }
     }
 
-qInfo()<<"boxes done";
 }
 
 
@@ -252,5 +269,19 @@ void Game::handleKeyPress() {
         scene()->addItem(bomb);
     }
 
+}
+
+void Game::updateScores() {
+    Score1->setPlainText(player1->getName()+" Score:"+ QString::number(player2->getScore())  +" Lives: "+QString::number(player1->getLifeCount()));
+    Score2->setPlainText(player2->getName()+" Score: 0 Lives: "+QString::number(player2->getLifeCount()));
+    if(player1->getLifeCount() == 0 && player2->getLifeCount() != 0){
+        scoreBoard = new ScoreBoard(player2->getName(), player2->getScore(),player1->getName(), player1->getScore());
+        close();
+    }
+    else if(player2->getLifeCount() == 0 && player1->getLifeCount() != 0){
+        scoreBoard = new ScoreBoard(player1->getName(), player1->getScore(),player2->getName(), player2->getScore());
+        close();
+
+    }
 }
 

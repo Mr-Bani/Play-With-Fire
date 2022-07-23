@@ -34,6 +34,7 @@ private:
     QPropertyAnimation *xAnimator, *yAnimator;
     QTimer *walkingTimer, *pixmapTimer, *runningTimer,*itemTimer;
     bool canImove, flipped{false},dead{false};
+
     QVector<int> framesInfo;
 public:
     bool isDead() const;

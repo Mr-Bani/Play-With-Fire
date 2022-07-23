@@ -11,13 +11,16 @@
 #include <QDebug>
 #include <QSet>
 #include "../views/Bomb.h"
+#include "../views/Label.h"
+#include "ScoreBoard.h"
 
 class Game : public QGraphicsView {
 Q_OBJECT
 public:
     Player *player1, *player2;
-    QTimer* walkingTimer,*keyTimer;
-    Game(QString name1,QString character1, QString name2,QString character2,int lives);
+    QTimer *walkingTimer, *keyTimer;
+
+    Game(QString name1, QString character1, QString name2, QString character2, int lives);
 
 
 protected:
@@ -29,10 +32,17 @@ public:
     bool canMove(Player *player, QString direction);
 
 public slots:
+
     void handleKeyPress();
+
+    void updateScores();
+
 private:
-    QVector <Block> boxes;
+    QVector<Block> blocks;
     QSet<int> pressedKeys;
+    label *Score1, *Score2;
+    QTimer *scoreTimer;
+    ScoreBoard *scoreBoard;
 };
 
 

@@ -2,12 +2,12 @@
 #include <QPushButton>
 #include "src/windows/Home.h"
 #include "src/windows/Game.h"
+#include "src/windows/ScoreBoard.h"
 
 int main(int argc, char *argv[]) {
 
     QApplication a(argc, argv);
-    auto game = new Game("ali","mike","ahmad","rex",3);
-    game->show();
-    qInfo()<<game->width()<<" "<<game->height();
+    auto home = new Home();
+    home->show();
     return QApplication::exec();
 }
